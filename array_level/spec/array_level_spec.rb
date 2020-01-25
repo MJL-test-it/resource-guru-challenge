@@ -7,10 +7,12 @@ describe Array do
     end
     it 'removes a single nest' do
       expect([[]].level).to eq []
-      expect([1,[2,3],4].level).to eq [1,2,3,4]
+      expect([1, [2, 3], 4].level).to eq [1, 2, 3, 4]
     end
     it 'removes deeper then one nests' do
-      expect([[[[]]]]).to eq []
+      expect([[[[]]]].level).to eq []
+      expect([1, [2, [3, 4, 5, [6, 7], 8], 9], 10].level).to eq [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      expect([1, [2, [3, 4]], [5, [6, 7], [8], 9], 10].level).to eq [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     end
   end
 end
