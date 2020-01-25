@@ -2,3 +2,4 @@
 .idea
 array_level-*.gem
 coverage/
+target
