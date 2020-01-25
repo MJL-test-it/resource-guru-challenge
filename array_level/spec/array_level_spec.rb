@@ -45,4 +45,17 @@ describe Array do
       expect(ary).to eq [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     end
   end
+  context '#level vs #flatten' do
+    it 'level is slower than flatten' do
+      ary = [1, [2, [3, 4]], [5, [6, 7], [8], 9], 10]
+      expect { ary.level }.to perform_slower_than { ary.flatten }
+    end
+  end
+  context '#level! vs #flatten!' do
+    it 'level! is slower than flatten!' do
+      ary = [1, [2, [3, 4]], [5, [6, 7], [8], 9], 10]
+      arry = [1, [2, [3, 4]], [5, [6, 7], [8], 9], 10]
+      expect { ary.level! }.to perform_slower_than { ary.flatten! }
+    end
+  end
 end
