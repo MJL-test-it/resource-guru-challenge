@@ -3,7 +3,7 @@
 
 class Array
   def level
-    self.each_with_object([]) do |elem, ary|
+    each_with_object([]) do |elem, ary|
       case elem
       when Array then ary.push(*elem.level)
       else ary << elem
@@ -12,6 +12,9 @@ class Array
   end
 
   def level!
-
+    ary = level
+    clear
+    push(*ary)
+    nil
   end
 end
