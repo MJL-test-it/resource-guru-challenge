@@ -1,4 +1,4 @@
-# Array Flatten Code Challenge
+# Array Flatten Method Code Challenge
 ## Description
 The challenge presented is as follows:
 
