@@ -17,6 +17,8 @@ To include the solution in your project please include the gem in your Gemfile:
 gem 'array_level', 'url goes here'
 ```
 
+- The commit history has not been squashed to retain example of workflow.
+
 ## Files
 - specs for the new method are included in the `specs` folder.
 - implementation is found in `lib`

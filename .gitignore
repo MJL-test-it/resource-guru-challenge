@@ -1,3 +1,4 @@
 .tool-versions
 .idea
 array_level-*.gem
+coverage/
