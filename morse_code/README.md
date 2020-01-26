@@ -28,11 +28,21 @@ asdf install rust stable
 
 this will give you the latest stable version of rust.
 
-Go into the morse_code directory. To run the tests for the morse code library
- go into morse and run `cargo test`.
+## Testing
+The library functionality is tested in `morse/src/lib.rs` To run the tests
+, enter `morse` and run `cargo test`.
+
+Integration tests are run through rspec in the project root (`morse_code
+/`). To build the project for rspec to test run:
+
+```bash
+cargo build --all --out-dir spec/integration --release -Z unstable-options
+```
+ from the project root.
  
-#### todo 
-- Tests for stdin->stdout
+ 
+#### todo
+- Test for file read 
 - Test for file write
 - Test each CLI flag
 - Translation file reader tests

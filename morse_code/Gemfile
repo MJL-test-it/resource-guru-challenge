@@ -1,0 +1,4 @@
+ruby '2.6.4'
+
+gem 'rspec-core'
+gem 'rspec-expectations'
