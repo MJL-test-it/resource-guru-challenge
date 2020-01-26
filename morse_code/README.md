@@ -43,8 +43,6 @@ Running the integration specs will remove all the translated files in the
  directories in a clean up step. 
  
 #### todo
-- Test for file write
-- Test each CLI flag
 - Translation file reader tests
 
 ### TODO
