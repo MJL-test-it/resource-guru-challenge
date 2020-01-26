@@ -33,16 +33,15 @@ The library functionality is tested in `morse/src/lib.rs` To run the tests
 , enter `morse` and run `cargo test`.
 
 Integration tests are run through rspec in the project root (`morse_code
-/`). To build the project for rspec to test run:
+/`). A helper script has been supplied to assist in the integration spec run
+. To use the script run:
 
 ```bash
-cargo build --all --out-dir spec/integration --release -Z unstable-options
-```
- from the project root.
+ruby run_specs.rb --help
+``` 
  
  
 #### todo
-- Test for file read 
 - Test for file write
 - Test each CLI flag
 - Translation file reader tests

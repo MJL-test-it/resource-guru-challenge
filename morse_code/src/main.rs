@@ -1,9 +1,11 @@
 use ::std::io;
 use ::std::io::prelude;
 use morse::phrase_to_morse;
+use std::borrow::Borrow;
 use std::fmt::Error;
 use std::fs::File;
 use std::io::Read;
+use std::path::MAIN_SEPARATOR;
 use std::process::exit;
 use structopt::StructOpt;
 
@@ -48,7 +50,7 @@ fn main() {
     for t in translate.iter().filter(|s| !s.is_empty()) {
         translation.push(phrase_to_morse(t.to_string()));
     }
-    let translation: String = translation.join("\n");
+    let translation: String = translation.join(MAIN_SEPARATOR.to_string().to_str());
     if translation.contains('?') {
         println!("=======================");
         println!("Input contained errors.");
