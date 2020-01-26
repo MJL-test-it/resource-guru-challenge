@@ -55,7 +55,7 @@ Translated:
   context 'when no file is specified' do
     subject { `./morse_code --infile #{infile} --outfile` }
     it 'no file is created and the output is piped to stdout' do
-      expect(subject).to eq "No output filepath supplied.\n#{expected_in_file}\n"
+      expect(subject).to eq "`--output` used but no filepath supplied.\n#{expected_in_file}\n"
     end
   end
 end
