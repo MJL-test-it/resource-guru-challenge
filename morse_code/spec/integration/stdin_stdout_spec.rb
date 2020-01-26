@@ -6,8 +6,7 @@ describe 'morse_code stdin to stdout spec' do
   context 'good input' do
     context 'all known tokens' do
       let(:expected) do
-        %(Received: ["#{input_string}"]
-Translated: ".-/-.../-.-./-.././..-./--./...././.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--../-----/.----/..---/...--/....-/...../-..../--.../---../----./.-.-.-/--..--"
+        %(.-/-.../-.-./-.././..-./--./..../../.---/-.-/.-../--/-./---/.--./--.-/.-./.../-/..-/...-/.--/-..-/-.--/--../-----/.----/..---/...--/....-/...../-..../--.../---../----./.-.-.-/--..--
 )
       end
       context 'lowercase' do
@@ -27,8 +26,7 @@ Translated: ".-/-.../-.-./-.././..-./--./...././.---/-.-/.-../--/-./---/.--./--.
       context 'hello, world.' do
         let(:input_string) { 'hello, world.' }
         let(:expected) do
-          %(Received: ["#{input_string}"]
-Translated: "...././.-../.-../---/--..--|.--/---/.-./.-../-../.-.-.-"
+          %(...././.-../.-../---/--..--|.--/---/.-./.-../-../.-.-.-
 )
         end
         it 'parses `hello, world.` correctly and generates output' do
@@ -40,11 +38,13 @@ Translated: "...././.-../.-../---/--..--|.--/---/.-./.-../-../.-.-.-"
     context 'bad input' do
       let(:input_string) { '\$!@' }
       let(:expected) do
-        %(Received: ["$!@"]
-=======================
+        %(=======================
 Input contained errors.
 =======================
-Translated: "?/?/?"
+Received:
+$!@
+Translated:
+?/?/?
 )
       end
       it 'parses the input, generates an output string and reports that the input was bad' do

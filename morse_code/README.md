@@ -39,9 +39,23 @@ Integration tests are run through rspec in the project root (`morse_code
 ```bash
 ruby run_specs.rb --help
 ``` 
- 
+Running the integration specs will remove all the translated files in the
+ directories in a clean up step. 
  
 #### todo
 - Test for file write
 - Test each CLI flag
 - Translation file reader tests
+
+### TODO
+- This would be better if the program could be put on PATH and called
+ wherever. Currently the reliance on the translations dir for dumping translated files when no output filepath is given would cause some mess in the users drive.
+- I'm also not sure if the integration specs will complete successfully on a
+ windows machine due to the carriage return. I _think_ that MRI deals with that
+  but I know JRuby does not.
+- From the integration specs you can see there is a little difference in the
+ output. An extra newline between the file read input and output, if there is a
+  new line
+  at the end of the file (which most IDEs can be set to do), along with a new
+   line at the end of the stdout expectations, rather than in the file
+    written. This could be handled. I may yet.
