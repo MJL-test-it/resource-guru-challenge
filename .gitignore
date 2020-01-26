@@ -4,3 +4,4 @@ array_level-*.gem
 coverage/
 target
 integration/morse_code
+morse_code
