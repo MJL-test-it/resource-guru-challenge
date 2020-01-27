@@ -60,7 +60,7 @@ ruby obfuscate.rb --help
 
 these commands will display the options to use to interact with the CLIs.
 
-### TODO
+### Improvements
 - This would be better if the program could be put on PATH and called
  wherever. Currently the reliance on the translations dir for dumping translated files when no output filepath is given would cause some mess in the users drive.
 - I'm also not sure if the integration specs will complete successfully on a
@@ -75,3 +75,10 @@ these commands will display the options to use to interact with the CLIs.
 - There is a way to use lookback and look ahead regex's in rust, in the `fancy-regex` crate but I decided
 to avoid that route due to time constraints (the crate does not expose a replace method and only indexes position of matches via start and end byte position - I felt that was going to be too fiddly for this) and used the opportunity to write
  a wrapper around the Rust cli using Ruby instead.
+ - Leveraging https://github.com/danielpclark/rutie for Ruby/Rust integration was my initial plan.
+
+### Learnings
+- I had a few goes at different CLI libraries in Rust, the standard library provides one sufficient for basin input but handling flags took too much lift. `structopt` provides a good abstraction over `clap` and was a little more readable so I stuck with that.
+- The `regex` library in Rust does not handle any lookaround features. The maintainer suggests that the effort involved is too great. The functionality is availble in another crate, `fancy-regex`, without replace.
+- The gems handling system calls in RSpec are now out of comission, this required a build script for the integration specs to be run in a wrapper script.
+- (this is an already known but worth mentioning) Development speed in Ruby is greater than in Rust, at the cost of type safety and considerably slower execution speed, however Rust's std test library and package management are very easy to work with.
