@@ -2,3 +2,6 @@
 .idea
 array_level-*.gem
 coverage/
+target
+morse_code/spec/integration/morse_code
+morse_code/morse_code
