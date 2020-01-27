@@ -35,14 +35,6 @@ struct Opt {
         help("Instruction to write to an output file as well as std out. 'default' writes to /translations.")
     )]
     outfile: String,
-    #[structopt(
-        name = "translator",
-        short = "t",
-        long,
-        default_value = "__NOFILE__",
-        help("Instruction to read a yaml file to provide the translation.")
-    )]
-    translation_file: String,
 }
 
 fn main() -> std::io::Result<()> {
@@ -50,6 +42,7 @@ fn main() -> std::io::Result<()> {
     let translate: Vec<String> = read_strings_to_translate(opt.input.clone(), opt.infile.clone());
     let translation: String = translate_input(&translate);
 
+    let mut exit_code: i32 = 0;
     let mut out_buf: Vec<&str> = Vec::new();
     let input: String;
     {
@@ -62,6 +55,7 @@ fn main() -> std::io::Result<()> {
             input = translate.join('\n'.to_string().as_str());
             out_buf.push(input.as_str());
             out_buf.push("Translated:");
+            exit_code = 1;
         }
     }
 
@@ -70,7 +64,7 @@ fn main() -> std::io::Result<()> {
         None => {
             out_buf.push(&translation);
             println!("{}", out_buf.join('\n'.to_string().as_str()));
-            exit(0)
+            exit(exit_code)
         }
         Some(outpath) => {
             let outpath = outpath.as_str().replace("\"", "");
@@ -78,9 +72,9 @@ fn main() -> std::io::Result<()> {
             out_buf.push(&translation);
             let mut outfile = File::create(outpath)?;
             outfile.write_all(out_buf.join('\n'.to_string().as_str()).as_ref())?;
+            exit(exit_code)
         }
     }
-    Ok(())
 }
 
 fn read_strings_to_translate(input: Option<String>, infile: Option<String>) -> Vec<String> {
