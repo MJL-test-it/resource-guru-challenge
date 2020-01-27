@@ -42,7 +42,7 @@ Integration tests are run through rspec in the project root (`morse_code
 ruby run_specs.rb --help
 ``` 
 Running the integration specs will remove all the translated files in the
- directories in a clean up step. 
+ directories in a clean up step. _Including any in the `translations` directory_.
  
  
 ## Usage
