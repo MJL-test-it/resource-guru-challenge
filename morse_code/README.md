@@ -72,6 +72,6 @@ these commands will display the options to use to interact with the CLIs.
   at the end of the file (which most IDEs can be set to do), along with a new
    line at the end of the stdout expectations, rather than in the file
     written. This could be handled. I may yet.
-- There is a way to use lookback and look ahead regex's in rust but I decided
-to avoid that route due to time constraints and used the opportunity to write
+- There is a way to use lookback and look ahead regex's in rust, in the `fancy-regex` crate but I decided
+to avoid that route due to time constraints (the crate does not expose a replace method and only indexes position of matches via start and end byte position - I felt that was going to be too fiddly for this) and used the opportunity to write
  a wrapper around the Rust cli using Ruby instead.
