@@ -11,8 +11,7 @@ For obfuscation, your team decided to replace the number of consecutive dots wit
 - In main read the stdin given on program run, process through morse code translator, output to screen
 - Add file write in main
 - Add CLI interface to read from file/stdin, write to file/stdout and help message
-- Add option to read in from translation file for obfuscation - edit
- translator to take a HashMap read in from the yaml
+- Add obfuscation option that will run a further pass over the output text.
 
 ## Usage
 To build the project you must have rust installed. The easiest way to do this (and this is true for all common languages) is to use `asdf`. The installation guide for asdf is found here:
@@ -43,7 +42,8 @@ Running the integration specs will remove all the translated files in the
  directories in a clean up step. 
  
 #### todo
-- Translation file reader tests
+- Realised the issue with using a yml, don't want to play with that issue
+ right now, will write an obfuscator instead.
 
 ### TODO
 - This would be better if the program could be put on PATH and called
